@@ -1,0 +1,65 @@
+@import '../../mainStyle.scss';
+
+// Navbar
+.top-bar{
+    display: flex;
+    background: linear-gradient(70deg, rgb(214,180,247), rgb(173,203,231));
+    width: 100%;
+    height: 65px;
+
+    // center text Hz & Vt
+    justify-content: center;
+    align-items: center;
+    
+
+    h1{
+        font-size: 18px;
+        color:chocolate;
+        letter-spacing: 1px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
+
+
+// total budget
+.total-budget{
+    display: flex;
+    background: $dark;
+    height: 300px;
+    justify-content: center;
+    align-items: center;
+
+    h2{
+        font-weight: 400;
+        font-size: 60px;
+        color: aqua;
+
+
+        // green - When expenses is less than income
+        &.green{
+            color:lighten($green, $amount: 20);
+        }
+
+        // red - When expenses is more than income.
+        &.red{
+            color:lighten($red, $amount: 20);
+        }
+    }
+}
+
+
+// add items
+.add-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .add-item-container{
+        width: 650px;
+        // background: aqua;
+        // height: 50px;
+    
+    }
+
+}
