@@ -12,6 +12,6 @@
         <app-add-budget-form style="padding: 20px;" (formSubmit)="addItemToList($event)"></app-add-budget-form>
     </div>
 </section>
-<hr>
+
 <app-display-budget-list style="padding: 20px;" [budgetItemsList]="budgetList" (delete)="deleteItemFromList($event)"
     (update)="updateItem($event)"></app-display-budget-list>
