@@ -2,13 +2,13 @@
     <div class="budget-item-container">
         <div class="income">
             <h1>(+) Income</h1>
-            <app-budget-card></app-budget-card>
-            <app-budget-card></app-budget-card>
+            <app-budget-card [isIncome]="true"></app-budget-card>
+            <app-budget-card [isIncome]="true"></app-budget-card>
         </div>
         <div class="expense">
             <h1>(-) Expense</h1>
-            <app-budget-card></app-budget-card>
-            <app-budget-card></app-budget-card>
+            <app-budget-card [isIncome]="false"></app-budget-card>
+            <app-budget-card [isIncome]="false"></app-budget-card>
         </div>
 
     </div>
