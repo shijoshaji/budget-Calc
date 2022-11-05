@@ -12,6 +12,7 @@ $pink: #FA7C91;
 $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
+$light-grey:#f5f5f5;
 
 // custom:
 $light-grey: #f5f5f5;
@@ -33,7 +34,7 @@ $fullhd-enabled: false;
 // Update some of Bulma's component variables
 $body-background-color: $beige-lighter;
 $control-border-width: 2px;
-$input-border-color: transparent;
+$input-background-color: $light-grey;
 $input-shadow: none;
 
 // Import only what you need from Bulma
