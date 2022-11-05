@@ -10,7 +10,7 @@
 
 <section class="add-item">
     <div class="add-item-container">
-        <app-add-budget-form style="padding: 20px;"></app-add-budget-form>
+        <app-add-budget-form style="padding: 20px;" (formSubmit)="addItem($event)"></app-add-budget-form>
     </div>
 </section>
 <hr>

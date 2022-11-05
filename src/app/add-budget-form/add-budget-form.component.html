@@ -1,4 +1,4 @@
-<form class="form-ui">
+<form #myBudgetForm="ngForm" (ngSubmit)="submitForm()">
     <div class="field is-horizontal">
         <!-- <div class="field-label is-normal">
             <label class="label">Add Income/Expense</label>
@@ -6,16 +6,25 @@
         <div class="field-body">
             <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input" type="number" placeholder="Amount" style="width:150px;">
+                    <input class="input" [(ngModel)]="budgetForm.amount" name="amount" #amount="ngModel" type="number"
+                        placeholder="Amount" style="width:150px;" required>
                 </p>
+                <div *ngIf="amount.invalid && (amount.dirty || amount.touched)">
+                    <span style="color: red;">* Amount Required</span>
+                </div>
+
             </div>
             <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input" type="text" placeholder="Description">
+                    <input class="input" [(ngModel)]="budgetForm.description" name="description" #description="ngModel"
+                        type="text" placeholder="Description" required>
                 </p>
+                <div *ngIf="description.invalid && (description.dirty || description.touched)">
+                    <span style="color: red;">* Description Required</span>
+                </div>
             </div>
             <div class="field">
-                <button class="button is-dark">Add</button>
+                <button type="submit" [disabled]="myBudgetForm.form.invalid" class="button is-dark">Add</button>
             </div>
         </div>
 

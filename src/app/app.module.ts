@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { AddBudgetFormComponent } from './add-budget-form/add-budget-form.component';
 import { DisplayBudgetListComponent } from './display-budget-list/display-budget-list.component';
 import { BudgetCardComponent } from './display-budget-list/budget-card/budget-card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BudgetCardComponent } from './display-budget-list/budget-card/budget-ca
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
