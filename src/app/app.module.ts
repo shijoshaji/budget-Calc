@@ -9,6 +9,8 @@ import { DisplayBudgetListComponent } from './display-budget-list/display-budget
 import { BudgetCardComponent } from './display-budget-list/budget-card/budget-card.component';
 import { FormsModule } from '@angular/forms';
 import { EditBudgetModalComponent } from './edit-budget-modal/edit-budget-modal.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EditBudgetModalComponent } from './edit-budget-modal/edit-budget-modal.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
