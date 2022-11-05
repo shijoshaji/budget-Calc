@@ -16,8 +16,17 @@ export class HomeComponent implements OnInit {
 
   }
 
-  addItem(newItem: BudgetItemModel) {
+  addItemToList(newItem: BudgetItemModel) {
     console.log('Item recevied in parent', newItem);
     this.budgetList.push(newItem);
+  }
+
+
+  deleteItemFromList(oldItem: BudgetItemModel) {
+    console.log('deleted');
+    let index = this.budgetList.indexOf(oldItem);
+    this.budgetList.splice(index, 1);
+
+
   }
 }

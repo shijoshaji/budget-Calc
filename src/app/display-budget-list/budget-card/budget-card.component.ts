@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BudgetItemModel } from 'src/app/utilities/budget-item.model';
 
 @Component({
@@ -9,7 +9,10 @@ import { BudgetItemModel } from 'src/app/utilities/budget-item.model';
 export class BudgetCardComponent implements OnInit {
 
   @Input()
-  eachItem: BudgetItemModel={} as BudgetItemModel
+  eachItem: BudgetItemModel = {} as BudgetItemModel;
+
+  @Output()
+  deleteBudgetClick: EventEmitter<BudgetItemModel> = new EventEmitter<BudgetItemModel>();
 
   // amount = 150;
   currencyType = 'INR';
@@ -19,7 +22,8 @@ export class BudgetCardComponent implements OnInit {
   }
 
   deleteBudget() {
-    console.log('deleted',this.eachItem);
+    console.log('deleted sending from child to delete from main array', this.eachItem);
+    this.deleteBudgetClick.emit();
 
   }
 

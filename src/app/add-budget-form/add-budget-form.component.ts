@@ -32,15 +32,7 @@ export class AddBudgetFormComponent implements OnInit {
     // sending data to parent
     console.log('add item to parent', form.value);
     this.formSubmit.emit(form.value);
-
-    // this.clear();
-
-
-  }
-
-  clear() {
-    this.budgetFormItem.amount = 0;
-    this.budgetFormItem.description = '';
+    form.reset();
   }
 
 }

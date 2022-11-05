@@ -1,8 +1,5 @@
 <form #myBudgetForm="ngForm" (ngSubmit)="submitForm(myBudgetForm)">
     <div class="field is-horizontal">
-        <!-- <div class="field-label is-normal">
-            <label class="label">Add Income/Expense</label>
-        </div> -->
         <div class="field-body">
             <div class="field">
                 <p class="control is-expanded has-icons-left">
@@ -16,8 +13,8 @@
             </div>
             <div class="field">
                 <p class="control is-expanded has-icons-left">
-                    <input class="input" [ngModel]="budgetFormItem.description" name="description" #description="ngModel"
-                        type="text" placeholder="Description" required>
+                    <input class="input" [ngModel]="budgetFormItem.description" name="description"
+                        #description="ngModel" type="text" placeholder="Description" required>
                 </p>
                 <div *ngIf="description.invalid && (description.dirty || description.touched)">
                     <span style="color: red;">* Description Required</span>
@@ -27,8 +24,5 @@
                 <button type="submit" [disabled]="myBudgetForm.form.invalid" class="button is-dark">Add</button>
             </div>
         </div>
-
     </div>
-
-
 </form>
