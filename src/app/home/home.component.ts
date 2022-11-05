@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BudgetItemModel } from '../utilities/budget-item.model';
+import { BudgetItemModel, updateBudget } from '../utilities/budget-item.model';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +10,9 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
+  totalBudget: number = 0;
+  amountType: string = 'INR';
+
   budgetList: BudgetItemModel[] = new Array<BudgetItemModel>();
 
   ngOnInit(): void {
@@ -19,6 +22,7 @@ export class HomeComponent implements OnInit {
   addItemToList(newItem: BudgetItemModel) {
     console.log('Item recevied in parent', newItem);
     this.budgetList.push(newItem);
+    this.totalBudget += newItem.amount;
   }
 
 
@@ -26,7 +30,13 @@ export class HomeComponent implements OnInit {
     console.log('deleted');
     let index = this.budgetList.indexOf(oldItem);
     this.budgetList.splice(index, 1);
+    this.totalBudget -= oldItem.amount;
+  }
 
 
+  updateItem(updateItem: updateBudget) {
+    this.budgetList[this.budgetList.indexOf(updateItem.oldBudget)] = updateItem.newBudget;
+    this.totalBudget -= updateItem.oldBudget.amount;
+    this.totalBudget += updateItem.newBudget.amount;
   }
 }

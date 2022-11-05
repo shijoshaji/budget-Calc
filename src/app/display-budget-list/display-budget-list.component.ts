@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBudgetFormComponent } from '../add-budget-form/add-budget-form.component';
 import { EditBudgetModalComponent } from '../edit-budget-modal/edit-budget-modal.component';
-import { BudgetItemModel } from '../utilities/budget-item.model';
+import { BudgetItemModel, updateBudget } from '../utilities/budget-item.model';
 
 @Component({
   selector: 'app-display-budget-list',
@@ -16,6 +16,9 @@ export class DisplayBudgetListComponent implements OnInit {
 
   @Output()
   delete: EventEmitter<BudgetItemModel> = new EventEmitter<BudgetItemModel>();
+
+  @Output()
+  update: EventEmitter<updateBudget> = new EventEmitter<updateBudget>();
 
   constructor(public dialog: MatDialog) { }
 
@@ -34,7 +37,11 @@ export class DisplayBudgetListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.budgetItemsList[this.budgetItemsList.indexOf(itemToEdit)] = result;
+        // this.budgetItemsList[this.budgetItemsList.indexOf(itemToEdit)] = result;
+        this.update.emit({
+          oldBudget: itemToEdit,
+          newBudget: result
+        });
       }
     });
 

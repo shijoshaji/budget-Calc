@@ -3,3 +3,8 @@ export interface BudgetItemModel {
     description: string;
 
 }
+
+export interface updateBudget {
+    oldBudget: BudgetItemModel;
+    newBudget: BudgetItemModel;
+}
