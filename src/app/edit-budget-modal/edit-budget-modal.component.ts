@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BudgetItemModel } from '../utilities/budget-item.model';
 
 @Component({
@@ -8,14 +9,17 @@ import { BudgetItemModel } from '../utilities/budget-item.model';
 })
 export class EditBudgetModalComponent implements OnInit {
 
-  @Input() item: BudgetItemModel = {} as BudgetItemModel;
-  constructor() { }
+  // @Input() item: BudgetItemModel = {} as BudgetItemModel;  //removed since it comes via modal
+
+  constructor(public dialogRef: MatDialogRef<EditBudgetModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public item: BudgetItemModel) { }
 
   ngOnInit(): void {
   }
 
   onEdit(itemToEdit: BudgetItemModel) {
     console.log('EDIT', itemToEdit);
+    this.dialogRef.close(itemToEdit);
 
 
   }

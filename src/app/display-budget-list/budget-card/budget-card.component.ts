@@ -14,6 +14,9 @@ export class BudgetCardComponent implements OnInit {
   @Output()
   deleteBudgetClick: EventEmitter<BudgetItemModel> = new EventEmitter<BudgetItemModel>();
 
+  @Output()
+  cardClicked: EventEmitter<BudgetItemModel> = new EventEmitter<BudgetItemModel>();
+
   // amount = 150;
   currencyType = 'INR';
   constructor() { }
@@ -24,6 +27,12 @@ export class BudgetCardComponent implements OnInit {
   deleteBudget() {
     console.log('deleted sending from child to delete from main array', this.eachItem);
     this.deleteBudgetClick.emit();
+
+  }
+
+  onCardClick(item: BudgetItemModel) {
+    console.log('each item clicked', item);
+    this.cardClicked.emit();
 
   }
 

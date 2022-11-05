@@ -1,5 +1,5 @@
 <div class="root">
-    <div class="item" [ngClass]="{'income': eachItem.amount>=0, 'expense':eachItem.amount<0}">
+    <div class="item" (click)="onCardClick(eachItem)" [ngClass]="{'income': eachItem.amount>=0, 'expense':eachItem.amount<0}">
         <div class="description">
             <p>{{eachItem.description}}</p>
         </div>
