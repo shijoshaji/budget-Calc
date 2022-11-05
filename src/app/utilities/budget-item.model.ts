@@ -1,4 +1,5 @@
-export interface BudgetItem {
+export interface BudgetItemModel {
     amount: number;
     description: string;
+
 }

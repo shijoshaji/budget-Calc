@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { BudgetItemModel } from 'src/app/utilities/budget-item.model';
 
 @Component({
   selector: 'app-budget-card',
@@ -8,9 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BudgetCardComponent implements OnInit {
 
   @Input()
-  isIncome: boolean | undefined;
+  eachItem: BudgetItemModel={} as BudgetItemModel
 
-  amount = 150;
+  // amount = 150;
   currencyType = 'INR';
   constructor() { }
 
@@ -18,7 +19,7 @@ export class BudgetCardComponent implements OnInit {
   }
 
   deleteBudget() {
-    console.log('deleted');
+    console.log('deleted',this.eachItem);
 
   }
 

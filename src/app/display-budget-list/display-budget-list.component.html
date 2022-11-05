@@ -2,13 +2,17 @@
     <div class="budget-item-container">
         <div class="income">
             <h1>(+) Income</h1>
-            <app-budget-card [isIncome]="true"></app-budget-card>
-            <app-budget-card [isIncome]="true"></app-budget-card>
+            <div *ngFor="let item of budgetItemsList">
+                <app-budget-card *ngIf="item.amount>=0" [eachItem]="item"></app-budget-card>
+
+            </div>
         </div>
         <div class="expense">
             <h1>(-) Expense</h1>
-            <app-budget-card [isIncome]="false"></app-budget-card>
-            <app-budget-card [isIncome]="false"></app-budget-card>
+            <div *ngFor="let item of budgetItemsList">
+                <app-budget-card *ngIf="item.amount< 0" [eachItem]="item"></app-budget-card>
+
+            </div>
         </div>
 
     </div>

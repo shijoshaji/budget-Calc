@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BudgetItem } from '../utilities/budget-item.model';
+import { BudgetItemModel } from '../utilities/budget-item.model';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +10,14 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  bugetItem: BudgetItem[] = new Array<BudgetItem>();
+  budgetList: BudgetItemModel[] = new Array<BudgetItemModel>();
 
   ngOnInit(): void {
-  }
-
-  addItem(item: BudgetItem) {
-    console.log('Item recevied in parent', item);
 
   }
 
+  addItem(newItem: BudgetItemModel) {
+    console.log('Item recevied in parent', newItem);
+    this.budgetList.push(newItem);
+  }
 }
