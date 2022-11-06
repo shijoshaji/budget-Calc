@@ -1,6 +1,18 @@
+<div *ngIf="isNewItem">
+    <label for="">
+        <span *ngIf="isIncome" style="color: green;">Income</span>
+        <span *ngIf="!isIncome" style="color: chocolate;">Expense</span>
+    </label>
+    <input type="checkbox" name="checkbox" class="cm-toggle" id="toggle" [(ngModel)]="isIncome">
+</div>
 <form #myBudgetForm="ngForm" (ngSubmit)="submitForm(myBudgetForm)">
     <div class="field is-horizontal">
         <div class="field-body">
+            <!-- <div class="field">
+                <p class="control">
+                    <input type="checkbox" name="checkbox" class="cm-toggle" id="toggle" [(ngModel)]="isIncome">
+                </p>
+            </div> -->
             <div class="field">
                 <p class="control is-expanded has-icons-left">
                     <input class="input" [ngModel]="budgetFormItem.amount" name="amount" #amount="ngModel" type="number"
@@ -22,7 +34,7 @@
             </div>
             <div class="field">
                 <button type="submit" [disabled]="myBudgetForm.form.invalid"
-                    class="button is-dark">{{btnTitle}}</button>
+                    class="button is-primary">{{btnTitle}}</button>
             </div>
         </div>
     </div>
