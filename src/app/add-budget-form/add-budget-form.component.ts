@@ -16,6 +16,7 @@ export class AddBudgetFormComponent implements OnInit {
 
   isNewItem: boolean = true;
   btnTitle: string = 'Add';
+  isIncome = true;
 
   constructor() { }
 
@@ -32,9 +33,15 @@ export class AddBudgetFormComponent implements OnInit {
 
   submitForm(form: NgForm) {
     // sending data to parent
-    console.log('add item to parent', form.value);
+    // decide if its expense or income
+    if (!this.isIncome) {
+      form.value['amount'] = -Math.abs(form.value['amount']);
+    }
     this.formSubmit.emit(form.value);
     // form.reset();
+    form.resetForm();
+
+
   }
 
 }
