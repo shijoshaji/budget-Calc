@@ -39,4 +39,9 @@ export class HomeComponent implements OnInit {
     this.totalBudget -= updateItem.oldBudget.amount;
     this.totalBudget += updateItem.newBudget.amount;
   }
+
+  setLocal(values: any) {
+    // TODO: need to see how to store to local and get results
+    // localStorage.setItem('BudgetItemsLocal', JSON.stringify(values));
+  }
 }

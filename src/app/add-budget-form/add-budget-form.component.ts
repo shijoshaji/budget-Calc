@@ -34,16 +34,14 @@ export class AddBudgetFormComponent implements OnInit {
   submitForm(form: NgForm) {
     // sending data to parent
     // decide if its expense or income
-    let flag = this.isIncome
-    if(!this.isIncome){
-      form.value['amount']= -Math.abs(form.value['amount'])
+    if (!this.isIncome) {
+      form.value['amount'] = -Math.abs(form.value['amount']);
     }
-    this.formSubmit.emit(form.value);    
+    this.formSubmit.emit(form.value);
     // form.reset();
     form.resetForm();
-    this.isIncome=flag
-    console.log('after rest',form);
-    
+
+
   }
 
 }
